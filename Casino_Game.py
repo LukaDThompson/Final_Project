@@ -8,6 +8,9 @@ def load_profile():
             games_played = int(file.readline().strip())
             win_ratio = float(file.readline().strip())
 
+            if balance <= 0:
+                balance = 1000
+
             return {"balance": balance, "games_played": games_played, "win_ratio": win_ratio}
     except FileNotFoundError:
         return {"balance": 1000, "games_played": 0, "win_ratio": 0.0}  # Default values
